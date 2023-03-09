@@ -6,7 +6,6 @@ export default function Layout({ children }) {
   return (
     <div className='layout'>
       <title> ILO - Frame Analysis </title>
-      <link rel="icon" type="image/x-icon" href="/des_logo.png" />
       <Navbar />
       <div className="content">
         { children }
