@@ -187,6 +187,7 @@ export default function SampleProblem1() {
     },
   });
   const [pointID, setPointID] = React.useState('');
+  const [pointDialogTitle, setPointDialogTitle] = React.useState('');
   const [mapWholeFBD, setMapWholeFBD] = React.useState({
     name: "my-map",
     areas: [
@@ -789,8 +790,9 @@ export default function SampleProblem1() {
     setActiveStep(area.name)
   }
 
-  const handleOpenWholeWholeDialog = (area) => {
+  const handleOpenWholeWholeDialog = (area, title) => {
     setPointID(area.name)
+    setPointDialogTitle(title+' '+area.name);
     setOpenWholeFBDDialog(true);
   };
 
@@ -1672,7 +1674,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_1_whole_fbd_member.png' 
           map = {mapWholeFBD} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area)}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force of Whole FBD at Point')}
           width = {600}
           height = {390}
           key={checkAnswersToggle} 
@@ -2677,7 +2679,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_1_FCD.png' 
           map = {mapFCD} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area)}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force of member FCD at Point')}
           width = {600}
           height = {390}
           key={checkAnswersToggle} 
@@ -2790,6 +2792,7 @@ export default function SampleProblem1() {
           section={activeStep} 
           pointsData={activeStep === 1 ? wholeFBDPointsData : FCDPointsData} 
           savePoints={savePoints} 
+          title={pointDialogTitle}
           setOpenDialog={setOpenWholeFBDDialog} 
         />
         <DiagramHelp 

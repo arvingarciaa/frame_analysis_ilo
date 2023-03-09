@@ -55,6 +55,7 @@ export default function SampleProblem1() {
   const [hasTwoForceMembersError, setHasTwoForceMembersError] = React.useState(false);
   const [twoForceMembersListError, setTwoForceMembersListError] = React.useState(false);
   const [twoForceMembersName, setTwoForceMembersName] = React.useState([]);
+  const [pointDialogTitle, setPointDialogTitle] = React.useState('');
   const [wholeFBDFirstEquationTooltipOpen, setWholeFBDFirstEquationTooltipOpen] = React.useState(false);
   const [wholeFBDSecondEquationTooltipOpen, setWholeFBDSecondEquationTooltipOpen] = React.useState(false);
   const [revealFinalAnswer, setRevealFinalAnswer] = React.useState(false);
@@ -108,7 +109,7 @@ export default function SampleProblem1() {
       momentDirection: "none",
       momentLabel: "",
     },
-    "100": {
+    "Rope": {
       verticalForceDirection: "none",
       verticalForceLabel: "",
       horizontalForceDirection: "none",
@@ -283,8 +284,8 @@ export default function SampleProblem1() {
       },
       {
         id: 1,
-        title: "100",
-        name: "100",
+        title: "Rope",
+        name: "Rope",
         shape: "rect",
         coords: [
           134,
@@ -968,7 +969,7 @@ export default function SampleProblem1() {
         } else {
           newMapACE.areas[0].preFillColor = WRONG_PREFILL;
         }
-        if(ACEPointsData["100"]["horizontalForceDirection"] === "right"){
+        if(ACEPointsData["Rope"]["horizontalForceDirection"] === "right"){
           newMapACE.areas[1].preFillColor = CORRECT_PREFILL;
           count++;
         } else {
@@ -1071,8 +1072,23 @@ export default function SampleProblem1() {
     }
   };
 
-  const handleOpenWholeWholeDialog = (area) => {
+  const handleOpenWholeWholeDialog = (area, title, arg) => {
     setPointID(area.name)
+    if(arg){
+      switch(area.name){
+        case 'F':
+          setPointDialogTitle('Force of member ED on pin D');
+          break;
+        case 'D':
+          setPointDialogTitle('Force of pulley D on pin D');
+          break;
+        case 'CD':
+          setPointDialogTitle('Force of BCD on pin D');
+          break;
+      }
+    } else {
+      setPointDialogTitle(title+' '+area.name);
+    }
     setOpenWholeFBDDialog(true);
   };
 
@@ -2010,7 +2026,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_2_whole_fbd_member.png' 
           map = {mapWholeFBD} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area)}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force of Whole FBD at Point')}
           width = {450}
           height = {420}
           key={checkAnswersToggle} 
@@ -2231,7 +2247,7 @@ export default function SampleProblem1() {
             </FormControl>
             <FormControl sx={{mr:0.25, verticalAlign: 'bottom'}} size="small" error={ACEAnswers[0].secondLabelError}>
               <span>
-                {ACEPointsData["100"]["horizontalForceLabel"] === "" ? '___' : ACEPointsData["100"]["horizontalForceLabel"]} 
+                {ACEPointsData["Rope"]["horizontalForceLabel"] === "" ? '___' : ACEPointsData["Rope"]["horizontalForceLabel"]} 
               </span>
             </FormControl>
             (
@@ -2429,7 +2445,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_2_ACE.png' 
           map = {mapACE} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area)}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force of member ACE at Point')}
           width = {400}
           height = {420}
           key={checkAnswersToggle} 
@@ -2462,7 +2478,7 @@ export default function SampleProblem1() {
           textAlign: "right",
         }}>
           <span style={{fontSize: '2em', padding:0}}>
-            {ACEPointsData["100"]["horizontalForceLabel"]} <EastIcon sx={{padding: 0}} /> <br/>
+            {ACEPointsData["Rope"]["horizontalForceLabel"]} <EastIcon sx={{padding: 0}} /> <br/>
           </span>
         </div>
         <div style={{
@@ -2588,7 +2604,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_2_pulley_d.png' 
           map = {mapPulleyD} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area)}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force of Pulley D on Pin')}
           width = {400}
           height = {330}
           key={checkAnswersToggle} 
@@ -3307,7 +3323,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_2_pin_d.png' 
           map = {mapPinD} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area)}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, '', true)}
           width = {400}
           height = {400}
           key={checkAnswersToggle} 
@@ -3400,6 +3416,7 @@ export default function SampleProblem1() {
             activeStep === 3 ? pulleyDPointsData :
             pinDPointsData
           } 
+          title={pointDialogTitle}
           savePoints={savePoints} 
           setOpenDialog={setOpenWholeFBDDialog} 
         />

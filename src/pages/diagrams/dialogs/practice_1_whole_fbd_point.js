@@ -31,7 +31,7 @@ export default function WholeADialog(props) {
   const [inclinedForceLabel, setInclinedForceLabel] = React.useState("");
   const [momentDirection, setMomentDirection] = React.useState("none");
   const [momentLabel, setMomentLabel] = React.useState("");
-  
+
   const handleClose = () => {
     props.setOpenDialog(false); 
     props.savePoints([
@@ -69,7 +69,7 @@ export default function WholeADialog(props) {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Whole FBD Point {props.pointID}
+            {props.title}
           </Typography>
           <div id="modal-modal-description" sx={{ mt: 2 }}>
             <div style={{px: "40px"}}>
