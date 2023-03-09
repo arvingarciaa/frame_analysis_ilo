@@ -1,5 +1,6 @@
 {
   "name": "gatsby-starter-hello-world",
+  "homepage": ".",
   "private": true,
   "description": "A simplified bare-bones starter for Gatsby",
   "version": "0.1.0",
@@ -13,9 +14,16 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "gatsby": "^5.6.0",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.8",
+    "gatsby": "^5.7.0",
+    "gatsby-plugin-material-ui": "^4.0.2",
+    "gatsby-theme-material-ui": "^1.0.13",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-img-mapper": "^1.5.0"
   },
   "repository": {
     "type": "git",

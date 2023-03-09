@@ -1,0 +1,19 @@
+.portfolio > h2 {
+  font-size: 3em;
+  text-align: center;
+  margin: 80px 70px 20px 0px;
+}
+.portfolio > h3 {
+  font-size: 2em;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 50px;
+}
+.portfolio > h5 {
+  color: black;
+}
+.answer{
+  font-size: 1.2em;
+  font-weight: 500;
+  padding: 0;
+}

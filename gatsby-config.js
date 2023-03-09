@@ -8,5 +8,9 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  plugins: [],
+  plugins: [`gatsby-plugin-material-ui`],
+  siteMetadata: {
+    title: 'Interactive Learning Object: Frame Analysis',
+    description: 'A collection of interactive diagrams for learning.'
+  }
 }
