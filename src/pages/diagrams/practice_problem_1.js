@@ -1002,7 +1002,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[0].firstComponentValueError}
                     value={wholeFBDAnswers[0].firstComponentValue}
                     onChange={(event) => handleFieldUpdate(0, 'firstComponentValue', event.target.value)}
@@ -1110,7 +1110,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[0].secondComponentValueError}
                     value={wholeFBDAnswers[0].secondComponentValue}
                     onChange={(event) => handleFieldUpdate(0, 'secondComponentValue', event.target.value)}
@@ -1287,7 +1287,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[1].firstComponentValueError}
                     value={wholeFBDAnswers[1].firstComponentValue}
                     onChange={(event) => handleFieldUpdate(1, 'firstComponentValue', event.target.value)}
@@ -1415,7 +1415,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[2].firstComponentValueError}
                     value={wholeFBDAnswers[2].firstComponentValue}
                     onChange={(event) => handleFieldUpdate(2, 'firstComponentValue', event.target.value)}
@@ -1444,7 +1444,7 @@ export default function SampleProblem1() {
                   open = {wholeFBDThirdEquationTooltipOpen}
                   onOpen={() => setWholeFBDThirdEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDThirdEquationTooltipOpen(false)}
-                  placement = "top"
+                  placement = "bottom"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <Select
@@ -1469,7 +1469,7 @@ export default function SampleProblem1() {
                   open = {wholeFBDThirdEquationTooltipOpen}
                   onOpen={() => setWholeFBDThirdEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDThirdEquationTooltipOpen(false)}
-                  placement = "bottom"
+                  placement = "top"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <Select
@@ -1495,13 +1495,13 @@ export default function SampleProblem1() {
                   open = {wholeFBDThirdEquationTooltipOpen && wholeFBDAnswers[2]['secondComponent'] !== "1"}
                   onOpen={() => setWholeFBDThirdEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDThirdEquationTooltipOpen(false)}
-                  placement = "bottom"
+                  placement = "top"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[2].secondComponentValueError}
                     value={wholeFBDAnswers[2].secondComponentValue}
                     onChange={(event) => handleFieldUpdate(2, 'secondComponentValue', event.target.value)}
@@ -1515,7 +1515,7 @@ export default function SampleProblem1() {
                   open = {wholeFBDThirdEquationTooltipOpen}
                   onOpen={() => setWholeFBDThirdEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDThirdEquationTooltipOpen(false)}
-                  placement = "top"
+                  placement = "bottom"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <span>
@@ -1587,7 +1587,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[2].thirdComponentValueError}
                     value={wholeFBDAnswers[2].thirdComponentValue}
                     onChange={(event) => handleFieldUpdate(2, 'thirdComponentValue', event.target.value)}

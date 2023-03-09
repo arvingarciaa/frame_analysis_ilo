@@ -1327,7 +1327,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[0].firstComponentValueError}
                     value={wholeFBDAnswers[0].firstComponentValue}
                     onChange={(event) => handleFieldUpdate(0, 'firstComponentValue', event.target.value)}
@@ -1435,7 +1435,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[0].secondComponentValueError}
                     value={wholeFBDAnswers[0].secondComponentValue}
                     onChange={(event) => handleFieldUpdate(0, 'secondComponentValue', event.target.value)}
@@ -1612,7 +1612,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[1].firstComponentValueError}
                     value={wholeFBDAnswers[1].firstComponentValue}
                     onChange={(event) => handleFieldUpdate(1, 'firstComponentValue', event.target.value)}
@@ -1641,7 +1641,7 @@ export default function SampleProblem1() {
                   open = {wholeFBDSecondEquationTooltipOpen}
                   onOpen={() => setWholeFBDSecondEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDSecondEquationTooltipOpen(false)}
-                  placement = "top"
+                  placement = "bottom"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <Select
@@ -1666,7 +1666,7 @@ export default function SampleProblem1() {
                   open = {wholeFBDSecondEquationTooltipOpen}
                   onOpen={() => setWholeFBDSecondEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDSecondEquationTooltipOpen(false)}
-                  placement = "bottom"
+                  placement = "top"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <Select
@@ -1692,13 +1692,13 @@ export default function SampleProblem1() {
                   open = {wholeFBDSecondEquationTooltipOpen && wholeFBDAnswers[1]['secondComponent'] !== "1"}
                   onOpen={() => setWholeFBDSecondEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDSecondEquationTooltipOpen(false)}
-                  placement = "bottom"
+                  placement = "top"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[1].secondComponentValueError}
                     value={wholeFBDAnswers[1].secondComponentValue}
                     onChange={(event) => handleFieldUpdate(1, 'secondComponentValue', event.target.value)}
@@ -1712,7 +1712,7 @@ export default function SampleProblem1() {
                     open = {wholeFBDSecondEquationTooltipOpen}
                     onOpen={() => setWholeFBDSecondEquationTooltipOpen(true)}
                     onClose={() => setWholeFBDSecondEquationTooltipOpen(false)}
-                    placement = "top"
+                    placement = "bottom"
                     PopperProps={{style:{zIndex:4}}}
                 >
                   <span>
@@ -1853,7 +1853,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[2].firstComponentValueError}
                     value={wholeFBDAnswers[2].firstComponentValue}
                     onChange={(event) => handleFieldUpdate(2, 'firstComponentValue', event.target.value)}
@@ -1882,7 +1882,7 @@ export default function SampleProblem1() {
                   open = {wholeFBDThirdEquationTooltipOpen}
                   onOpen={() => setWholeFBDThirdEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDThirdEquationTooltipOpen(false)}
-                  placement = "top"
+                  placement = "bottom"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <Select
@@ -1907,7 +1907,7 @@ export default function SampleProblem1() {
                   open = {wholeFBDThirdEquationTooltipOpen}
                   onOpen={() => setWholeFBDThirdEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDThirdEquationTooltipOpen(false)}
-                  placement = "bottom"
+                  placement = "top"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <Select
@@ -1933,13 +1933,13 @@ export default function SampleProblem1() {
                   open = {wholeFBDThirdEquationTooltipOpen && wholeFBDAnswers[2]['secondComponent'] !== "1"}
                   onOpen={() => setWholeFBDThirdEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDThirdEquationTooltipOpen(false)}
-                  placement = "bottom"
+                  placement = "top"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={wholeFBDAnswers[2].secondComponentValueError}
                     value={wholeFBDAnswers[2].secondComponentValue}
                     onChange={(event) => handleFieldUpdate(2, 'secondComponentValue', event.target.value)}
@@ -1953,7 +1953,7 @@ export default function SampleProblem1() {
                   open = {wholeFBDThirdEquationTooltipOpen}
                   onOpen={() => setWholeFBDThirdEquationTooltipOpen(true)}
                   onClose={() => setWholeFBDThirdEquationTooltipOpen(false)}
-                  placement = "top"
+                  placement = "bottom"
                   PopperProps={{style:{zIndex:4}}}
                 >
                   <span>
@@ -2158,7 +2158,7 @@ export default function SampleProblem1() {
                 <TextField 
                   id="outlined-basic" 
                   size="small"
-                  inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                  inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                   error={ACEAnswers[0].firstComponentValueError}
                   value={ACEAnswers[0].firstComponentValue}
                   onChange={(event) => handleFieldUpdate(0, 'firstComponentValue', event.target.value, 'ACE')}
@@ -2202,9 +2202,8 @@ export default function SampleProblem1() {
                 </Tooltip>
               </FormControl>
             ) 
-            
             <br />
-            <FormControl sx={{mr:0.25, ml:18.8, verticalAlign: 'bottom'}} size="small" error={ACEAnswers[0].secondSignError}>
+            <FormControl sx={{mr:0.25, ml:16.2, verticalAlign: 'bottom'}} size="small" error={ACEAnswers[0].secondSignError}>
               <Select
                 labelId="select-vertical-force-direction-label"
                 id="select-vertical-force-direction"
@@ -2239,7 +2238,7 @@ export default function SampleProblem1() {
               <TextField 
                 id="outlined-basic" 
                 size="small"
-                inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                 error={ACEAnswers[0].secondComponentValueError}
                 value={ACEAnswers[0].secondComponentValue}
                 onChange={(event) => handleFieldUpdate(0, 'secondComponentValue', event.target.value, 'ACE')}
@@ -2263,7 +2262,7 @@ export default function SampleProblem1() {
             </FormControl>
             )
             <br />
-            <FormControl sx={{mr:0.25, ml:18.8, verticalAlign: 'bottom'}} size="small" error={ACEAnswers[0].thirdSignError}>
+            <FormControl sx={{mr:0.25, ml:16.2, verticalAlign: 'bottom'}} size="small" error={ACEAnswers[0].thirdSignError}>
               <Select
                 labelId="select-vertical-force-direction-label"
                 id="select-vertical-force-direction"
@@ -2298,7 +2297,7 @@ export default function SampleProblem1() {
               <TextField 
                 id="outlined-basic" 
                 size="small"
-                inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                 error={ACEAnswers[0].thirdComponentValueError}
                 value={ACEAnswers[0].thirdComponentValue}
                 onChange={(event) => handleFieldUpdate(0, 'thirdComponentValue', event.target.value, 'ACE')}
@@ -2322,7 +2321,7 @@ export default function SampleProblem1() {
             </FormControl>
             )
             <br />
-            <FormControl sx={{mr:0.25, ml:18.8, verticalAlign: 'bottom'}} size="small" error={ACEAnswers[0].fourthSignError}>
+            <FormControl sx={{mr:0.25, ml:16.2, verticalAlign: 'bottom'}} size="small" error={ACEAnswers[0].fourthSignError}>
               <Select
                 labelId="select-vertical-force-direction-label"
                 id="select-vertical-force-direction"
@@ -2357,7 +2356,7 @@ export default function SampleProblem1() {
               <TextField 
                 id="outlined-basic" 
                 size="small"
-                inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                 error={ACEAnswers[0].fourthComponentValueError}
                 value={ACEAnswers[0].fourthComponentValue}
                 onChange={(event) => handleFieldUpdate(0, 'fourthComponentValue', event.target.value, 'ACE')}
@@ -2736,7 +2735,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={pinDAnswers[0].firstComponentValueError}
                     value={pinDAnswers[0].firstComponentValue}
                     onChange={(event) => handleFieldUpdate(0, 'firstComponentValue', event.target.value, 'pinD')}
@@ -2822,7 +2821,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={pinDAnswers[0].secondComponentValueError}
                     value={pinDAnswers[0].secondComponentValue}
                     onChange={(event) => handleFieldUpdate(0, 'secondComponentValue', event.target.value, 'pinD')}
@@ -2908,7 +2907,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={pinDAnswers[0].thirdComponentValueError}
                     value={pinDAnswers[0].thirdComponentValue}
                     onChange={(event) => handleFieldUpdate(0, 'thirdComponentValue', event.target.value, 'pinD')}
@@ -3063,7 +3062,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={pinDAnswers[1].firstComponentValueError}
                     value={pinDAnswers[1].firstComponentValue}
                     onChange={(event) => handleFieldUpdate(1, 'firstComponentValue', event.target.value, 'pinD')}
@@ -3149,7 +3148,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={pinDAnswers[1].secondComponentValueError}
                     value={pinDAnswers[1].secondComponentValue}
                     onChange={(event) => handleFieldUpdate(1, 'secondComponentValue', event.target.value, 'pinD')}
@@ -3235,7 +3234,7 @@ export default function SampleProblem1() {
                   <TextField 
                     id="outlined-basic" 
                     size="small"
-                    inputProps = {{ sx: { padding: '2px 2px !important', width:'33px !important' } }}
+                    inputProps = {{ sx: { padding: '2px 2px !important', width:'70px !important' } }}
                     error={pinDAnswers[1].thirdComponentValueError}
                     value={pinDAnswers[1].thirdComponentValue}
                     onChange={(event) => handleFieldUpdate(1, 'thirdComponentValue', event.target.value, 'pinD')}
