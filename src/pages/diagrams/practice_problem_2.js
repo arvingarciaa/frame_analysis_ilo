@@ -1217,7 +1217,7 @@ export default function SampleProblem1() {
         </p>
       </div>;
     diagram = 
-      <div style={{textAlign: 'center'}}>
+      <div style={{textAlign: 'center', height: '430px'}}>
         <ImageMapper 
           src = '/practice_2_whole_fbd.png' 
           width = {450}
@@ -2006,7 +2006,7 @@ export default function SampleProblem1() {
         </Box>
       </div>;
     diagram = 
-      <div style={{textAlign: 'center'}}>
+      <div style={{textAlign: 'center', height: '420px'}}>
         <ImageMapper 
           src = '/practice_2_whole_fbd_member.png' 
           map = {mapWholeFBD} 
@@ -2015,7 +2015,7 @@ export default function SampleProblem1() {
           height = {420}
           key={checkAnswersToggle} 
         />
-        <IconButton aria-label="info" onClick={handleOpenDiagramHelpDialog} size="large" color="warning" sx={{ position:"relative", top: '-470px', right: '230px', zIndex: 5}}>
+        <IconButton aria-label="info" onClick={handleOpenDiagramHelpDialog} size="large" color="warning" sx={{ position:"relative", top: '-450px', right: '260px', zIndex: 5}}>
           <InfoIcon />
         </IconButton>
         <div style={{

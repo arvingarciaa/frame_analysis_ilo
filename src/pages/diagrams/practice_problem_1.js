@@ -902,12 +902,13 @@ export default function SampleProblem1() {
         </p>
       </div>;
     diagram = 
-      <div style={{textAlign: 'center'}}>
+      <div style={{textAlign: 'center', height: '430px'}}>
         <ImageMapper 
           src = '/practice_1_whole_fbd.png' 
           map = {MAP} 
           onClick = {(area) => selectDiagram(area)} 
           width = {650}
+          height = {430}
           key={checkAnswersToggle} 
           sx = {{position:'absolute'}}
         />
@@ -1667,7 +1668,7 @@ export default function SampleProblem1() {
         </Box>
       </div>;
     diagram = 
-      <div style={{textAlign: 'center'}}>
+      <div style={{textAlign: 'center', height: '400px'}}>
         <ImageMapper 
           src = '/practice_1_whole_fbd_member.png' 
           map = {mapWholeFBD} 
@@ -1677,7 +1678,7 @@ export default function SampleProblem1() {
           key={checkAnswersToggle} 
           sx = {{position:'absolute'}}
         />
-        <IconButton aria-label="info" onClick={handleOpenDiagramHelpDialog} size="large" color="warning" sx={{ position:"relative", top: '-450px', right: '190px', zIndex: 5}}>
+        <IconButton aria-label="info" onClick={handleOpenDiagramHelpDialog} size="large" color="warning" sx={{ position:"relative", top: '-410px', right: '190px', zIndex: 5}}>
           <InfoIcon />
         </IconButton>
         <div style={{
@@ -2672,7 +2673,7 @@ export default function SampleProblem1() {
 
     </div>;
     diagram = 
-      <div style={{textAlign: 'center'}}>
+      <div style={{textAlign: 'center', height: '400px'}}>
         <ImageMapper 
           src = '/practice_1_FCD.png' 
           map = {mapFCD} 
@@ -2687,7 +2688,7 @@ export default function SampleProblem1() {
           onClick={handleOpenDiagramHelpDialog} 
           size="large" 
           color="warning" 
-          sx={{ position:"relative", top: '-420px', right: '150px', zIndex: 5}}
+          sx={{ position:"relative", top: '-410px', right: '150px', zIndex: 5}}
         >
           <InfoIcon />
         </IconButton>
