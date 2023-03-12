@@ -197,10 +197,10 @@ export default function SampleProblem1() {
         name: "G",
         shape: "rect",
         coords: [
-          440,
-          2,
-          515,
-          80,
+          495,
+          20,
+          525,
+          90,
         ],
         fillColor: "#00ff194c",
         strokeColor: "black",
@@ -1674,7 +1674,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_1_whole_fbd_member.png' 
           map = {mapWholeFBD} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force of Whole FBD at Point')}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force at point')}
           width = {600}
           height = {390}
           key={checkAnswersToggle} 
@@ -1685,42 +1685,66 @@ export default function SampleProblem1() {
         </IconButton>
         <div style={{
           position: "relative", 
-          top: '-110px', 
-          left: '50px', 
+          top: '-160px', 
+          left: '20px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapWholeFBD.areas[2].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {wholeFBDPointsData["A"]["horizontalForceLabel"]} <EastIcon sx={{padding: 0}} /> <br/>
-            {wholeFBDPointsData["A"]["verticalForceLabel"]} <NorthIcon sx={{padding: 0}} />
+          <span style={{padding:0}}>
+            <EastIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, top: '-10px', right: '27px', fontSize: '1.5em', position: 'absolute'}}>
+            {wholeFBDPointsData["A"]["horizontalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-120px', 
-          left: '380px', 
+          bottom: '180px', 
+          left: '70px', 
+          zIndex: 1, 
+          width:"fit-content",
+          visibility: mapWholeFBD.areas[2].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
+          textAlign: "right",
+        }}>
+          <span style={{padding:0}}>
+            <NorthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '15px', left: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {wholeFBDPointsData["A"]["verticalForceLabel"]}
+          </span>
+        </div>
+        <div style={{
+          position: "relative", 
+          top: '-185px', 
+          left: '375px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapWholeFBD.areas[1].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {wholeFBDPointsData["D"]["verticalForceLabel"]} <NorthIcon sx={{padding: 0}} /> <br/>
+          <span style={{padding:0}}>
+            <NorthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '15px', left:'50px', fontSize: '1.5em', position: 'absolute'}}>
+            {wholeFBDPointsData["D"]["verticalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-460px', 
-          left: '450px', 
+          top: '-550px', 
+          left: '480px', 
           zIndex: 3, 
           width:"fit-content",
           textAlign: "right",
           visibility: mapWholeFBD.areas[0].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {wholeFBDPointsData["G"]["verticalForceLabel"]} <SouthIcon sx={{padding: 0}} /> <br/>
+          <span style={{padding:0}}>
+            <SouthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '15px', left:'50px', fontSize: '1.5em', position: 'absolute'}}>
+            {wholeFBDPointsData["G"]["verticalForceLabel"]}
           </span>
         </div>
       </div>;
@@ -2679,7 +2703,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_1_FCD.png' 
           map = {mapFCD} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force of member FCD at Point')}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force at point')}
           width = {600}
           height = {390}
           key={checkAnswersToggle} 
@@ -2696,55 +2720,82 @@ export default function SampleProblem1() {
         </IconButton>
         <div style={{
           position: "relative", 
-          top: '-440px', 
-          left: '330px', 
+          top: '-481px', 
+          left: '269px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapFCD.areas[0].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {FCDPointsData["F"]["horizontalForceLabel"]} <EastIcon sx={{padding: 0}} /> <br/>
-            {FCDPointsData["F"]["verticalForceLabel"]} <NorthIcon sx={{padding: 0}} />
+          <span style={{padding:0}}>
+            <NorthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '45px', left:'50px', fontSize: '1.5em', position: 'absolute'}}>
+            {FCDPointsData["F"]["verticalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-355px', 
-          left: '160px', 
+          top: '-505px', 
+          left: '305px', 
+          zIndex: 1, 
+          width:"fit-content",
+          visibility: mapFCD.areas[0].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
+          textAlign: "right",
+        }}>
+          <span style={{padding:0}}>
+            <EastIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '-10px', left: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {FCDPointsData["F"]["horizontalForceLabel"]}
+          </span>
+        </div>
+        <div style={{
+          position: "relative", 
+          top: '-435px', 
+          left: '235px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapFCD.areas[1].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {FCDPointsData["9.25"]["inclinedForceLabel"]} <NorthWestIcon sx={{padding: 0}} /> <br/>
+          <span style={{padding:0}}> 
+            <NorthWestIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} /> 
+          </span>
+          <span style={{padding:0, bottom: '10px', right: '55px', fontSize: '1.5em', position: 'absolute'}}>
+            {FCDPointsData["9.25"]["inclinedForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-325px', 
-          left: '165px', 
+          top: '-425px', 
+          left: '235px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapFCD.areas[2].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {FCDPointsData["Fbc"]["inclinedForceLabel"]} <NorthWestIcon sx={{padding: 0}} /> <br/>
+          <span style={{padding:0}}> 
+            <NorthWestIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} /> 
+          </span>
+          <span style={{padding:0, bottom: '10px', right: '55px', fontSize: '1.5em', position: 'absolute'}}>
+            {FCDPointsData["Fbc"]["inclinedForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-200px', 
+          top: '-315px', 
           left: '270px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapFCD.areas[3].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {FCDPointsData["D"]["verticalForceLabel"]} <NorthIcon sx={{padding: 0}} /> <br/>
+          <span style={{padding:0}}>
+            <NorthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '15px', left:'50px', fontSize: '1.5em', position: 'absolute'}}>
+            {FCDPointsData["D"]["verticalForceLabel"]}
           </span>
         </div>
       </div>;

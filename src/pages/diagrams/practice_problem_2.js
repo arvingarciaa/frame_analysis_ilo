@@ -238,10 +238,10 @@ export default function SampleProblem1() {
         name: "D",
         shape: "rect",
         coords: [
-          330,
-          220,
-          390,
+          370,
           280,
+          420,
+          360,
         ],
         fillColor: "#00ff194c",
         strokeColor: "black",
@@ -289,9 +289,9 @@ export default function SampleProblem1() {
         shape: "rect",
         coords: [
           134,
-          230,
+          180,
           184,
-          275,
+          225,
         ],
         fillColor: "#00ff194c",
         strokeColor: "black",
@@ -304,9 +304,9 @@ export default function SampleProblem1() {
         shape: "rect",
         coords: [
           134,
-          300,
+          320,
           184,
-          345,
+          365,
         ],
         fillColor: "#00ff194c",
         strokeColor: "black",
@@ -319,9 +319,9 @@ export default function SampleProblem1() {
         shape: "rect",
         coords: [
           245,
-          370,
+          365,
           295,
-          425,
+          415,
         ],
         fillColor: "#00ff194c",
         strokeColor: "black",
@@ -339,9 +339,9 @@ export default function SampleProblem1() {
         shape: "rect",
         coords: [
           181,
-          84,
+          60,
           221,
-          124,
+          100,
         ],
         fillColor: "#00ff194c",
         strokeColor: "black",
@@ -368,9 +368,9 @@ export default function SampleProblem1() {
         name: "Right",
         shape: "rect",
         coords: [
-          250,
+          268,
           145,
-          290,
+          308,
           185,
         ],
         fillColor: "#00ff194c",
@@ -388,10 +388,10 @@ export default function SampleProblem1() {
         name: "CD",
         shape: "rect",
         coords: [
-          205,
-          160,
-          245,
-          200,
+          220,
+          145,
+          260,
+          185,
         ],
         fillColor: "#00ff194c",
         strokeColor: "black",
@@ -403,10 +403,10 @@ export default function SampleProblem1() {
         name: "D",
         shape: "rect",
         coords: [
-          160,
-          205,
-          200,
-          245,
+          145,
+          220,
+          185,
+          260,
         ],
         fillColor: "#00ff194c",
         strokeColor: "black",
@@ -418,10 +418,10 @@ export default function SampleProblem1() {
         name: "F",
         shape: "rect",
         coords: [
-          115,
-          260,
-          155,
-          300,
+          90,
+          290,
+          130,
+          330,
         ],
         fillColor: "#00ff194c",
         strokeColor: "black",
@@ -1072,9 +1072,31 @@ export default function SampleProblem1() {
     }
   };
 
-  const handleOpenWholeWholeDialog = (area, title, arg) => {
+  const handleOpenWholeWholeDialog = (area, title, step) => {
     setPointID(area.name)
-    if(arg){
+    console.log(area, title, step)
+    if(step === 2){
+      switch(area.name){
+        case 'Rope':
+          setPointDialogTitle('Force by Rope');
+          break;
+        default:
+          setPointDialogTitle(title+' '+area.name);
+          break;
+      }
+    } else if(step === 3){
+      switch(area.name){
+        case 'D':
+          setPointDialogTitle('Force of pin D on pulley D');
+          break;
+        case 'Top':
+          setPointDialogTitle('Force on top of pulley');
+          break;
+        case 'Right':
+          setPointDialogTitle('Force on right side of pulley');
+          break;
+      }
+    } else if(step === 4){
       switch(area.name){
         case 'F':
           setPointDialogTitle('Force of member ED on pin D');
@@ -2026,7 +2048,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_2_whole_fbd_member.png' 
           map = {mapWholeFBD} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force of Whole FBD at Point')}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force at Point')}
           width = {450}
           height = {420}
           key={checkAnswersToggle} 
@@ -2036,42 +2058,66 @@ export default function SampleProblem1() {
         </IconButton>
         <div style={{
           position: "relative", 
-          top: '-475px', 
-          left: '130px', 
+          top: '-525px', 
+          left: '50px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapWholeFBD.areas[0].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {wholeFBDPointsData["A"]["verticalForceLabel"]} <NorthIcon sx={{padding: 0}} /><br/>
-            {wholeFBDPointsData["A"]["horizontalForceLabel"]} <EastIcon sx={{padding: 0}} /> 
+          <span style={{padding:0}}>
+            <NorthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '15px', right: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {wholeFBDPointsData["A"]["verticalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-375px', 
-          left: '-80px', 
+          top: '-565px', 
+          left: '85px', 
+          zIndex: 1, 
+          width:"fit-content",
+          visibility: mapWholeFBD.areas[0].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
+          textAlign: "right",
+        }}>
+          <span style={{padding:0}}>
+            <EastIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '40px', left: '55px', fontSize: '1.5em', position: 'absolute'}}>
+            {wholeFBDPointsData["A"]["horizontalForceLabel"]}
+          </span>
+        </div>
+        <div style={{
+          position: "relative", 
+          top: '-430px', 
+          left: '-55px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapWholeFBD.areas[2].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "left",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {wholeFBDPointsData["B"]["horizontalForceLabel"]} <EastIcon sx={{padding: 0}} /> <br/>
+          <span style={{padding:0}}>
+            <EastIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '40px', right: '30px', fontSize: '1.5em', position: 'absolute'}}>
+            {wholeFBDPointsData["B"]["horizontalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-295px', 
-          left: '410px', 
+          top: '-260px', 
+          left: '367px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapWholeFBD.areas[1].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {wholeFBDPointsData["D"]["verticalForceLabel"]} <SouthIcon sx={{padding: 0}} />
+          <span style={{padding:0}}>
+            <SouthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '35px', left: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {wholeFBDPointsData["D"]["verticalForceLabel"]}
           </span>
         </div>
       </div>;
@@ -2444,7 +2490,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_2_ACE.png' 
           map = {mapACE} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force of member ACE at Point')}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force at point', 2)}
           width = {400}
           height = {420}
           key={checkAnswersToggle} 
@@ -2455,56 +2501,98 @@ export default function SampleProblem1() {
         </IconButton>
         <div style={{
           position: "relative", 
-          top: '-470px', 
-          left: '195px', 
+          top: '-490px', 
+          left: '175px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapACE.areas[0].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {ACEPointsData["A"]["horizontalForceLabel"]} <WestIcon sx={{padding: 0}} /> <br/>
-            {ACEPointsData["A"]["verticalForceLabel"]} <NorthIcon sx={{padding: 0}} />
+          <span style={{padding:0}}>
+            <WestIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, top: '35px', left: '30px', fontSize: '1.5em', position: 'absolute'}}>
+            {ACEPointsData["A"]["horizontalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-315px', 
-          left: '195px', 
+          top: '-580px', 
+          left: '130px', 
+          zIndex: 1, 
+          width:"fit-content",
+          visibility: mapACE.areas[0].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
+          textAlign: "right",
+        }}>
+          <span style={{padding:0}}>
+            <NorthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '15px', right: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {ACEPointsData["A"]["verticalForceLabel"]}
+          </span>
+        </div>
+        <div style={{
+          position: "relative", 
+          top: '-422px', 
+          left: '175px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapACE.areas[1].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {ACEPointsData["Rope"]["horizontalForceLabel"]} <EastIcon sx={{padding: 0}} /> <br/>
+          <span style={{padding:0}}>
+            <EastIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '20px', left: '62px', fontSize: '1.5em', position: 'absolute'}}>
+            {ACEPointsData["Rope"]["horizontalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-300px', 
-          left: '195px', 
+          top: '-400px', 
+          left: '129px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapACE.areas[2].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {ACEPointsData["C"]["horizontalForceLabel"]} <EastIcon sx={{padding: 0}} /> <br/>
-            {ACEPointsData["C"]["verticalForceLabel"]} <NorthIcon sx={{padding: 0}} />
+          <span style={{padding:0}}>
+            <NorthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '15px', left: '52px', fontSize: '1.5em', position: 'absolute'}}>
+            {ACEPointsData["C"]["verticalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-295px', 
-          left: '300px', 
+          top: '-439px', 
+          left: '95px', 
+          zIndex: 1, 
+          width:"fit-content",
+          visibility: mapACE.areas[2].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
+          textAlign: "right",
+        }}>
+          <span style={{padding:0}}>
+            <EastIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '40px', right: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {ACEPointsData["C"]["horizontalForceLabel"]}
+          </span>
+        </div>
+        <div style={{
+          position: "relative", 
+          top: '-445px', 
+          left: '285px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapACE.areas[3].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {ACEPointsData["F"]["inclinedForceLabel"]} <NorthEastIcon sx={{padding: 0}} /> <br/>
+          <span style={{padding:0}}>
+            <NorthEastIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, top: '40px', left: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {ACEPointsData["F"]["inclinedForceLabel"]}
           </span>
         </div>
       </div>;
@@ -2603,7 +2691,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_2_pulley_d.png' 
           map = {mapPulleyD} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area, 'Force of Pulley D on Pin')}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, '', 3)}
           width = {400}
           height = {330}
           key={checkAnswersToggle} 
@@ -2613,42 +2701,66 @@ export default function SampleProblem1() {
         </IconButton>
         <div style={{
           position: "relative", 
-          top: '-340px', 
-          left: '100px', 
+          top: '-310px', 
+          left: '130px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapPulleyD.areas[0].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {pulleyDPointsData["Top"]["horizontalForceLabel"]} <WestIcon sx={{padding: 0}} /> <br/>
+          <span style={{padding:0}}>
+            <WestIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '45px', right: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {pulleyDPointsData["Top"]["horizontalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-370px', 
-          left: '265px', 
+          top: '-345px', 
+          left: '175px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapPulleyD.areas[1].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {pulleyDPointsData["D"]["horizontalForceLabel"]} <EastIcon sx={{padding: 0}} /> <br/>
-            {pulleyDPointsData["D"]["verticalForceLabel"]} <NorthIcon sx={{padding: 0}} />
+          <span style={{padding:0}}>
+            <NorthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, top: '20px', right: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {pulleyDPointsData["D"]["verticalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-300px', 
-          left: '285px', 
+          top: '-370px', 
+          left: '210px', 
+          zIndex: 1, 
+          width:"fit-content",
+          visibility: mapPulleyD.areas[1].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
+          textAlign: "right",
+        }}>
+          <span style={{padding:0}}>
+            <EastIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, top: '35px', left: '7px', fontSize: '1.5em', position: 'absolute'}}>
+            {pulleyDPointsData["D"]["horizontalForceLabel"]}
+          </span>
+        </div>
+        <div style={{
+          position: "relative", 
+          top: '-390px', 
+          left: '235px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapPulleyD.areas[2].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {pulleyDPointsData["Right"]["verticalForceLabel"]} <SouthIcon sx={{padding: 0}} />
+          <span style={{padding:0}}>
+            <SouthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, top: '45px', left: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {pulleyDPointsData["Right"]["verticalForceLabel"]}
           </span>
         </div>
       </div>;
@@ -3322,7 +3434,7 @@ export default function SampleProblem1() {
         <ImageMapper 
           src = '/practice_2_pin_d.png' 
           map = {mapPinD} 
-          onClick = {(area) => handleOpenWholeWholeDialog(area, '', true)}
+          onClick = {(area) => handleOpenWholeWholeDialog(area, '', 4)}
           width = {400}
           height = {400}
           key={checkAnswersToggle} 
@@ -3332,43 +3444,83 @@ export default function SampleProblem1() {
         </IconButton>
         <div style={{
           position: "relative", 
-          top: '-340px', 
-          left: '255px', 
+          top: '-323px', 
+          left: '172px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapPinD.areas[0].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {pinDPointsData["CD"]["verticalForceLabel"]} <NorthIcon sx={{padding: 0}} /><br/>
-            {pinDPointsData["CD"]["horizontalForceLabel"]} <EastIcon sx={{padding: 0}} /> 
+          <span style={{padding:0}}>
+            <NorthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, bottom: '60px', right: '10px', fontSize: '1.5em', position: 'absolute'}}>
+            {pinDPointsData["CD"]["verticalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-350px', 
-          left: '70px', 
+          top: '-340px', 
+          left: '225px', 
+          zIndex: 1, 
+          width:"fit-content",
+          visibility: mapPinD.areas[0].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
+          textAlign: "right",
+        }}>
+          <span style={{padding:0}}>
+            <EastIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, top: '-10px', left: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {pinDPointsData["CD"]["horizontalForceLabel"]}
+          </span>
+        </div>
+        <div style={{
+          position: "relative", 
+          top: '-402px', 
+          left: '120px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapPinD.areas[1].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {pinDPointsData["D"]["horizontalForceLabel"]} <WestIcon sx={{padding: 0}} /> <br/>
-            {pinDPointsData["D"]["verticalForceLabel"]} <SouthIcon sx={{padding: 0}} />
+          <span style={{padding:0}}>
+            <WestIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, top: '-10px', right: '43px', fontSize: '1.5em', position: 'absolute'}}>
+            {pinDPointsData["D"]["horizontalForceLabel"]}
           </span>
         </div>
         <div style={{
           position: "relative", 
-          top: '-300px', 
-          left: '65px', 
+          top: '-417px', 
+          left: '172px', 
+          zIndex: 1, 
+          width:"fit-content",
+          visibility: mapPinD.areas[1].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
+          textAlign: "right",
+        }}>
+          <span style={{padding:0}}>
+            <SouthIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, top: '45px', left: '45px', fontSize: '1.5em', position: 'absolute'}}>
+            {pinDPointsData["D"]["verticalForceLabel"]}
+          </span>
+        </div>
+       
+        <div style={{
+          position: "relative", 
+          top: '-455px', 
+          left: '95px', 
           zIndex: 1, 
           width:"fit-content",
           visibility: mapPinD.areas[2].preFillColor !== CORRECT_PREFILL ? 'hidden' : 'visible',
           textAlign: "right",
         }}>
-          <span style={{fontSize: '2em', padding:0}}>
-            {pinDPointsData["F"]["inclinedForceLabel"]} <NorthEastIcon sx={{padding: 0}} />
+          <span style={{padding:0}}>
+            <NorthEastIcon sx={{padding: 0, width: '2.5em', height: '2.5em'}} />
+          </span>
+          <span style={{padding:0, top: '40px', left: '40px', fontSize: '1.5em', position: 'absolute'}}>
+            {pinDPointsData["F"]["inclinedForceLabel"]}
           </span>
         </div>
       </div>;
