@@ -1,0 +1,31 @@
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.list-info {
+  padding: 0.7rem 2rem;
+}
+
+.list-info > ul {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.list-info > span {
+  font-size: 1.4rem;
+}
+
+.steps {
+  font-size: 1.5rem;
+  padding-top: 15px;
+}
+
+li {
+  padding: 3px 0;
+}
+
+.disabled-button {
+  cursor: not-allowed;
+  pointer-events: none;
+}

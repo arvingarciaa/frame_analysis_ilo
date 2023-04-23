@@ -9,13 +9,14 @@ import Typography from '@mui/material/Typography';
 import StepButton from '@mui/material/StepButton';
 import CheckIcon from '@mui/icons-material/Check'; 
 import ImageMapper from 'react-img-mapper';
+import DetailsDialog from './dialogs/details_dialog'
 
 const steps = [
   'Determine 2-Force Members',
   'Whole FBD',
   'Diagram of Member BD',
-  'Diagram of Member AD With Pin D Attached',
-  'Diagram of Member AD Without Pin D',
+  'Diagram of Member AD with Pin D Attached',
+  'Diagram of Member AD without Pin D',
   'Diagram of Pin D',
   'Diagram of Member ABC'
 ];
@@ -24,6 +25,9 @@ export default function SampleProblem1() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [completed, setCompleted] = React.useState({});
   const [revealMembers, setRevealMembers] = React.useState(false);
+  const [openDetailsDialog, setDetailsDialog] = React.useState(false);
+  const [detailsDialogSRC, setDetailsDialogSRC] = React.useState('');
+  const [detailsDialogTitle, setDetailsDialogTitle] = React.useState('');
   
   const totalSteps = () => {
     return steps.length;
@@ -159,6 +163,32 @@ export default function SampleProblem1() {
     setActiveStep(Number(area.name))
   }
 
+  const handleOpenDetailsDialog = () => {
+    switch(activeStep){
+      case 3:
+        setDetailsDialogTitle('Member AD with Pin D Attached');
+        setDetailsDialogSRC('SP2_AD_momentD.gif');
+        break;
+      case 6:
+        setDetailsDialogTitle('Member ABC');
+        setDetailsDialogSRC('SP2_ABC_momentC.gif');
+        break;
+      default:
+        break;
+    }
+    setDetailsDialog(true);
+  };
+
+  const handleOpenPinAnalysisDialog = () => {
+    setDetailsDialogTitle('Pin Analysis Discussion');
+    setDetailsDialogSRC('SP2_ABC_momentC.gif');
+    setDetailsDialog(true);
+  }
+
+  const closeDialogs = () => {
+    setDetailsDialog(false);
+  }
+
   let diagram;
   let notes;
   if(activeStep === 0){
@@ -168,7 +198,7 @@ export default function SampleProblem1() {
         <p>
           <Button 
             variant="outlined" 
-            style={{display: revealMembers ? 'none' : ''}} 
+            style={{display: revealMembers ? 'none' : '', width: '100%'}} 
             onClick={(handleMembersReveal)
           }> 
             Reveal Answer
@@ -197,7 +227,10 @@ export default function SampleProblem1() {
   } else if(activeStep === 1) {
     notes = 
       <div style={{textAlign: 'left', padding: "0 20px"}}>
-        <img src="/sample_2_whole_fbd_equation.png" style={{ width: "100%"}} alt="FBD Equations"></img>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <h2>Equations: </h2>
+        </div>
+        <img src="/sample_2_whole_fbd_equation.jpg" style={{ width: "100%"}} alt="FBD Equations"></img>
         <div style={{padding: "12px 20px"}}>
           <ul>
             <li style={{marginBottom: "12px"}}>
@@ -237,6 +270,17 @@ export default function SampleProblem1() {
   } else if(activeStep === 3){
       notes = 
       <div style={{padding: "0px 20px"}}>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <h2>Equations: </h2>
+          <Button
+            color="warning"
+            disabled={activeStep === 0}
+            onClick={handleOpenDetailsDialog}
+            variant="contained"
+          >
+            More Details
+          </Button>
+        </div>
         <img src="/sample_2_ad_equations.png" style={{ width: "20rem"}} alt="AD Equations"></img>
         <ul>
           <li style={{marginBottom: "12px", marginTop:"12px"}}>
@@ -321,6 +365,17 @@ export default function SampleProblem1() {
   } else {
     notes = 
       <div style={{textAlign: 'left', padding: "0 20px"}}>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <h2>Equations: </h2>
+          <Button
+            color="warning"
+            disabled={activeStep === 0}
+            onClick={handleOpenDetailsDialog}
+            variant="contained"
+          >
+            More Details
+          </Button>
+        </div>
         <img src="/sample_2_abc_equation.png" style={{ width: "100%"}} alt="FBD Equations"></img>
         <div style={{padding: "12px 20px"}}>
           <ul>
@@ -339,7 +394,23 @@ export default function SampleProblem1() {
   return (
     <Layout>
       <div>
-        <h2 style={{marginBottom: "5px"}}>Sample Problem 2 - With Pin Analysis</h2>
+        <DetailsDialog 
+          openDialog={openDetailsDialog} 
+          closeDialog={closeDialogs} 
+          setOpenDialog={setDetailsDialog}
+          title={detailsDialogTitle}
+          src={detailsDialogSRC}
+        />
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <h2 style={{marginTop: "5px"}}>Sample Problem 2 - With Pin Analysis</h2>
+          <Button
+            color="warning"
+            onClick={handleOpenPinAnalysisDialog}
+            variant="contained"
+          >
+            Pin Analysis Discussion
+          </Button>
+        </div>
         <h3 style={{fontWeight: 400}}>Point A is a slotted connection that allows free vertical movement along the upper portion of member AD. If the frame is loaded as shown, determine the horizontal and vertical components of the reaction forces acting at the supports.</h3>
         <Box sx={{ width: '100%', marginTop: "40px", marginBottom: "40px"}}>
           <Stepper nonLinear activeStep={activeStep} alternativeLabel>

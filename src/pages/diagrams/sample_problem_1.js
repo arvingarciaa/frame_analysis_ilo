@@ -10,12 +10,13 @@ import StepButton from '@mui/material/StepButton';
 import CheckIcon from '@mui/icons-material/Check';
 import * as styles from "../../styles/diagram.module.css"  
 import ImageMapper from 'react-img-mapper';
+import DetailsDialog from './dialogs/details_dialog'
 
 const steps = [
   'Determine 2-Force Members',
   'Whole FBD',
   'Diagrams of ID and CG',
-  'Diagram of ABCDE with pulleys',
+  'Diagram of ABCDE with Pulleys',
   'Final Answers',
 ];
 
@@ -24,6 +25,10 @@ export default function SampleProblem1() {
   const [completed, setCompleted] = React.useState({});
   const [revealMembers, setRevealMembers] = React.useState(false);
   const [revealFinalAnswer, setRevealFinalAnswer] = React.useState(false);
+  const [openDetailsDialog, setDetailsDialog] = React.useState(false);
+  const [detailsDialogSRC, setDetailsDialogSRC] = React.useState('');
+  const [detailsDialogTitle, setDetailsDialogTitle] = React.useState('');
+
   
   const totalSteps = () => {
     return steps.length;
@@ -79,6 +84,26 @@ export default function SampleProblem1() {
 
   const handleFinalAnswerReveal = () => {
     setRevealFinalAnswer(true);
+  }
+
+  const handleOpenDetailsDialog = () => {
+    switch(activeStep){
+      case 1:
+        setDetailsDialogTitle('Whole FBD');
+        setDetailsDialogSRC('SP1_wholeFBD_momentH.gif');
+        break;
+      case 3:
+        setDetailsDialogTitle('ABCDE with Pulleys');
+        setDetailsDialogSRC('SP1_ABCDE_MomentA.gif');
+        break;
+      default:
+        break;
+    }
+    setDetailsDialog(true);
+  };
+
+  const closeDialogs = () => {
+    setDetailsDialog(false);
   }
 
   const MAP = {
@@ -188,7 +213,13 @@ export default function SampleProblem1() {
       <div style={{padding: "0 20px"}}>
         <h4>Are there any 2-force members?</h4>
         <p>
-          <Button variant="outlined" style={{display: revealMembers ? 'none' : ''}} onClick={(handleMembersReveal)}> Reveal Answer</Button>
+          <Button 
+            variant="outlined" 
+            style={{display: revealMembers ? 'none' : '', width: '100%'}} 
+            onClick={(handleMembersReveal)}
+          > 
+            Reveal Answer
+          </Button>
           <span style={{
             opacity: revealMembers ? 1 : 0,
             transition: 'visibility 0s, opacity 0.5s linear',
@@ -214,7 +245,18 @@ export default function SampleProblem1() {
   } else if(activeStep === 1) {
     notes = 
       <div style={{textAlign: 'center', padding: "0 20px"}}>
-        <img src="/sample_1_fbd_equation.png" style={{ maxHeight: "320px"}} alt="FBD Equations"></img>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <h2>Equations: </h2>
+          <Button
+            color="warning"
+            disabled={activeStep === 0}
+            onClick={handleOpenDetailsDialog}
+            variant="contained"
+          >
+            More Details
+          </Button>
+        </div>
+        <img src="/sample_1_fbd_equation.jpg" style={{ maxHeight: "320px"}} alt="FBD Equations"></img>
       </div>;
     diagram = <div style={{textAlign: 'center'}}><img src="/sample_1_whole_fbd_diagram.png" style={{ maxHeight: "450px", width:"100%"}} alt="Whole FBD" /></div>;
   } else if(activeStep === 2){
@@ -229,7 +271,18 @@ export default function SampleProblem1() {
   } else if(activeStep === 3){
     notes = 
       <div style={{padding: "12px 20px"}}>
-        <img src="/sample_1_abcde_equation.png" style={{ width: "100%"}} alt="ABCDE Equations"></img>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <h2>Equations: </h2>
+          <Button
+            color="warning"
+            disabled={activeStep === 0}
+            onClick={handleOpenDetailsDialog}
+            variant="contained"
+          >
+            More Details
+          </Button>
+        </div>
+        <img src="/sample_1_abcde_equation.jpg" style={{ width: "100%"}} alt="ABCDE Equations"></img>
       </div>;
     diagram = <div style={{textAlign: 'center'}}><img src="/sample_1_abcde.png" style={{ maxHeight: "450px", width:"100%"}} alt="ID and DG Diagram"></img></div>;
   }
@@ -262,6 +315,13 @@ export default function SampleProblem1() {
   return (
     <Layout>
       <div>
+        <DetailsDialog 
+          openDialog={openDetailsDialog} 
+          closeDialog={closeDialogs} 
+          setOpenDialog={setDetailsDialog}
+          title={detailsDialogTitle}
+          src={detailsDialogSRC}
+        />
         <h2 style={{marginBottom: "5px"}}>Sample Problem 1</h2>
         <h3 style={{fontWeight: 400}}>For the frame shown below, determine the forces on member AFGH.</h3>
         <Box sx={{ width: '100%', marginTop: "40px", marginBottom: "40px"}}>
@@ -313,19 +373,19 @@ export default function SampleProblem1() {
                     justifyContent: 'center', 
                     display: 'flex', 
                     mb: 3, 
-                    ml:1, 
-                    mt: 3
+                    mt: 3,
+                    padding: "0 20px",
                   }}>
                     <Button
                       color="inherit"
                       disabled={activeStep === 0}
                       onClick={handleBack}
-                      sx={{ mr: 1 }}
+                      variant="outlined"
                     >
                       Back
                     </Button>
                     <Box sx={{ flex: '1 1 auto' }} />
-                    <Button variant="contained" onClick={handleComplete} sx={{ mr: 1 }}>
+                    <Button variant="contained" onClick={handleComplete}>
                       Next
                     </Button>
                    

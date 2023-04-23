@@ -68,9 +68,34 @@ export default function WholeADialog(props) {
         onClose={handleClose}
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            {props.title}
-          </Typography>
+          <div style={{
+            display: 'flex', 
+            justifyContent: 'space-between',
+          }}>
+            <h2 id="modal-modal-title" style={{
+              margin: 0,
+              fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
+              fontWeight: '500',
+              fontSize: '1.25rem',
+              lineHeight: '1.6',
+              letterSpacing: '0.0075em',
+            }}>
+              {props.title}
+            </h2>
+            <div style={{textAlign:'right'}}>
+                <Button onClick={handleClose} style={{
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  backgroundColor: 'inherit',
+                  whiteSpace: 'nowrap',
+                  minWidth: '15px',
+                  fontSize: '20px',
+                  height: '30px',
+                }}>
+                  &times;
+                </Button>
+              </div>
+          </div>
           <div id="modal-modal-description" sx={{ mt: 2 }}>
             <div style={{px: "40px"}}>
               <p>Force along X</p>

@@ -1095,6 +1095,8 @@ export default function SampleProblem1() {
         case 'Right':
           setPointDialogTitle('Force on right side of pulley');
           break;
+        default:
+          break;
       }
     } else if(step === 4){
       switch(area.name){
@@ -1106,6 +1108,8 @@ export default function SampleProblem1() {
           break;
         case 'CD':
           setPointDialogTitle('Force of BCD on pin D');
+          break;
+        default:
           break;
       }
     } else {

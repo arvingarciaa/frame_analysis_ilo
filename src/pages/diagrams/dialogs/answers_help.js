@@ -29,9 +29,34 @@ export default function AnswersHelp(props) {
         onClose={handleClose}
       >
         <Box sx={style}>
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-            How to input equations
-          </Typography>
+          <div style={{
+            display: 'flex', 
+            justifyContent: 'space-between',
+          }}>
+            <h2 id="modal-modal-title" style={{
+              margin: 0,
+              fontFamily: '"Roboto","Helvetica","Arial",sans-serif',
+              fontWeight: '500',
+              fontSize: '1.25rem',
+              lineHeight: '1.6',
+              letterSpacing: '0.0075em',
+            }}>
+              How to input equations
+            </h2>
+            <div style={{textAlign:'right'}}>
+                <Button onClick={handleClose} style={{
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  backgroundColor: 'inherit',
+                  whiteSpace: 'nowrap',
+                  minWidth: '15px',
+                  fontSize: '20px',
+                  height: '30px',
+                }}>
+                  &times;
+                </Button>
+              </div>
+          </div>
           <div id="modal-modal-description" style={{ marginTop: 15 }}>
             <Typography id="modal-modal-title" variant="body2">
               <h3 style={{ marginBottom: 6 }}>Instructions to input equations:</h3>
@@ -62,11 +87,6 @@ export default function AnswersHelp(props) {
                 </li>
               </ol>
             </Typography>
-          </div>
-          <div style={{marginTop:"25px", textAlign:'right'}}>
-            <Button onClick={handleClose} variant="outlined">
-              Close
-            </Button>
           </div>
         </Box>
       </Modal>
