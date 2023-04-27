@@ -3559,7 +3559,7 @@ export default function SampleProblem1() {
   }
   return (
     <Layout>
-      <div>
+      <section>
         <PointDialog 
           openDialog={openWholeWholeADialog} 
           pointID={pointID} 
@@ -3657,7 +3657,7 @@ export default function SampleProblem1() {
             {snackbarInfo[2]}
           </Alert>
         </Snackbar>
-      </div>
+      </section>
     </Layout>
   )
 }

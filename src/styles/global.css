@@ -10,19 +10,11 @@ html, body {
   padding: 0;
   margin: 0;
 }
-body {
-  background-repeat: no-repeat;
-}
+
+
 p {
   margin: 16px auto;
   line-height: 1.5em;
-}
-
-/* layout & nav */
-.content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 30px;
 }
 
 nav {
@@ -31,8 +23,8 @@ nav {
   padding: 25px;
   background:#7B1113;
   color: #eee;
-  margin-bottom: 40px;
 }
+
 nav .links {
   display: inline-block;
   text-align: right;

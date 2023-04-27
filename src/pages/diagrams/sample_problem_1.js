@@ -314,7 +314,7 @@ export default function SampleProblem1() {
 
   return (
     <Layout>
-      <div>
+      <section>
         <DetailsDialog 
           openDialog={openDetailsDialog} 
           closeDialog={closeDialogs} 
@@ -395,7 +395,7 @@ export default function SampleProblem1() {
             </div>
           </Grid>
         </Grid>
-      </div>
+      </section>
     </Layout>
   )
 }

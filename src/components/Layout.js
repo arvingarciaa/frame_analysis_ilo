@@ -7,10 +7,7 @@ export default function Layout({ children }) {
     <div className='layout'>
       <title> ILO - Frame Analysis </title>
       <Navbar />
-      <div className="content">
-        { children }
-      </div>
-      <footer style={{height: "40px", paddingBottom: "40px"}}></footer>
+      { children }
     </div>
   )
 }

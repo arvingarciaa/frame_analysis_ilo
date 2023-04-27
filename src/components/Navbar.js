@@ -4,7 +4,6 @@ import { Link } from 'gatsby'
 export default function Navbar() {
   return (
     <nav>
-      
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit"></link>
       <div style={{display: 'flex', alignItems: 'center'}}>
         <img src="/up_seal.png" alt="" height="50px" width="50px" style={{padding: 0,}}/>
@@ -14,7 +13,7 @@ export default function Navbar() {
           fontWeight: 500, 
           marginLeft: '10px',
           fontFamily: '"Outfit", sans-serif',
-        }}>FRAME ANALYSIS</span>
+        }}>ILO: Frame Analysis</span>
       </div>
       <div className="links">
         <Link to="/">Home</Link>
